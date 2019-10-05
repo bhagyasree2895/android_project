@@ -23,4 +23,31 @@ public class Room1DetailsActivity extends AppCompatActivity {
 
         }
     }
+    public void gotohomePage(View v) {
+        try {
+            Intent toOtherIntent = new Intent(this,SignInActivity.class);
+            startActivity(toOtherIntent);
+
+        } catch (Exception e) {
+
+        }
+    }
+    public void gotoSearchResultsImagesAction(View v) {
+        try {
+            Intent toOtherIntent = new Intent(this, SearchResultsImagesActivity.class);
+            startActivity(toOtherIntent);
+
+        } catch (Exception e) {
+
+        }
+    }
+    public void gotoContactAction(View v) {
+        try {
+            Intent toOtherIntent = new Intent(this, SearchResultsImagesActivity.class);
+            startActivity(toOtherIntent);
+
+        } catch (Exception e) {
+
+        }
+    }
 }
