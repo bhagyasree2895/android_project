@@ -6,26 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class SignInActivity extends AppCompatActivity {
+public class searchResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_search_result);
     }
 
-    //Post Availability action
-    public void gotoPostingAvailAction(View v) {
-        try {
-            Intent toOtherIntent = new Intent(this, PostingAvailabilityActivity.class);
-            startActivity(toOtherIntent);
-
-        } catch (Exception e) {
-
-        }
-
-
-    }
     public void gotosignoutAction(View v) {
         try {
             Intent toOtherIntent = new Intent(this, MainActivity.class);
@@ -35,9 +23,10 @@ public class SignInActivity extends AppCompatActivity {
 
         }
     }
-    public void onSearch(View v) {
+
+    public void gotoRoom1(View v) {
         try {
-            Intent toOtherIntent = new Intent(this, searchResultActivity.class);
+            Intent toOtherIntent = new Intent(this, Room1DetailsActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {

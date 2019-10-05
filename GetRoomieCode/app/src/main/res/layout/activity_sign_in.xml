@@ -22,8 +22,8 @@
 
     <EditText
         android:id="@+id/searchET"
-        android:layout_width="292dp"
-        android:layout_height="67dp"
+        android:layout_width="261dp"
+        android:layout_height="72dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="Search (Enter Region)"
@@ -32,10 +32,10 @@
         android:textColorHint="#CA175A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.146"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383" />
+        app:layout_constraintVertical_bias="0.386" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -43,10 +43,10 @@
         android:layout_height="159dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.121"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.072"
+        app:layout_constraintVertical_bias="0.057"
         app:srcCompat="@drawable/icon" />
 
     <TextView
@@ -73,9 +73,38 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.88"
+        app:layout_constraintHorizontal_bias="0.826"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintVertical_bias="0.14" />
+
+    <Button
+        android:id="@+id/signOutBTN"
+        android:layout_width="107dp"
+        android:layout_height="49dp"
+        android:background="#000000"
+        android:onClick="gotosignoutAction"
+        android:text="Signout"
+        android:textColor="#CA175A"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.947"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/searchBTN"
+        android:layout_width="80dp"
+        android:layout_height="72dp"
+        android:background="@drawable/search_logo"
+        android:onClick="onSearch"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.385" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
