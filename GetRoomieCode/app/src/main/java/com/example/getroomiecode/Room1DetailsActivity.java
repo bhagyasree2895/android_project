@@ -43,7 +43,7 @@ public class Room1DetailsActivity extends AppCompatActivity {
     }
     public void gotoContactAction(View v) {
         try {
-            Intent toOtherIntent = new Intent(this, SearchResultsImagesActivity.class);
+            Intent toOtherIntent = new Intent(this, ContactActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
