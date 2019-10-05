@@ -46,7 +46,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.378"
-        app:srcCompat="@drawable/roomimg1" />
+        app:srcCompat="@drawable/roomingone" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.375"
-        app:srcCompat="@drawable/roomimg2" />
+        app:srcCompat="@drawable/roomingtwo" />
 
     <Button
         android:id="@+id/doneBTN"

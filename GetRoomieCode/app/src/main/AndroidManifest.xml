@@ -11,6 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SuccessfulSignUpActivity"></activity>
         <activity android:name=".SignUpActivity" />
+        <activity android:name=".Room1DetailsActivity"></activity>
+        <activity android:name=".searchResultActivity" />
         <activity android:name=".submitActivity" />
         <activity android:name=".uploadImageActivity" />
         <activity android:name=".PostingAvailabilityActivity" />
