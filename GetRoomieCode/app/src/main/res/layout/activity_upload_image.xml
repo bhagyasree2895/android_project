@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CA175A"
-    tools:context=".uploadImageActivity">
+    tools:context=".UploadImageActivity">
 
     <TextView
         android:id="@+id/projectnameTV2"

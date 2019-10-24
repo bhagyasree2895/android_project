@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class searchResultActivity extends AppCompatActivity {
+public class ContactActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_result);
+        setContentView(R.layout.activity_contact);
     }
-
     public void gotosignoutAction(View v) {
         try {
             Intent toOtherIntent = new Intent(this, MainActivity.class);
@@ -23,7 +22,7 @@ public class searchResultActivity extends AppCompatActivity {
 
         }
     }
-    public void gotohomePage(View v) {
+    public void gotoHomePageAction(View v) {
         try {
             Intent toOtherIntent = new Intent(this, SignInActivity.class);
             startActivity(toOtherIntent);
@@ -33,13 +32,15 @@ public class searchResultActivity extends AppCompatActivity {
         }
     }
 
-    public void gotoRoom1(View v) {
+
+    public void gotoRoomDetails(View v) {
         try {
-            Intent toOtherIntent = new Intent(this, Room1DetailsActivity.class);
+            Intent toOtherIntent = new Intent(this,Room1DetailsActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
 
         }
     }
+
 }
