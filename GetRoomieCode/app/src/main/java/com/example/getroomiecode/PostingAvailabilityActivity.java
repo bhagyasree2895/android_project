@@ -105,16 +105,31 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
             address.requestFocus();
             address.setError("Address length is too long: Max 50 Chars");
         }
-
-
+        else if(pin.length()==0){
+            pincode.requestFocus();
+            pincode.setError("PinCode Field is empty");
+        }
+        else if(pin.length()>7){
+            pincode.requestFocus();
+            pincode.setError("PinCode length is too long: Max 6 Chars");
+        }
+        else if(mobl.length()==0){
+            mobile.requestFocus();
+            mobile.setError("Mobile Field is empty");
+        }
+        else if (!Pattern.matches("[0-9]+",mobl)){
+            mobile.setError("Mobile Field should contain only numerical values");
+        }
+        else if(mobl.length()!=10){
+            mobile.requestFocus();
+            mobile.setError("Mobile Number length must be 10");
+        }
         else {
             try {
                 Intent toOtherIntent = new Intent(this, SubmitActivity.class);
                 startActivity(toOtherIntent);
-
             } catch (Exception e) {
             }
         }
-
     }
 }
