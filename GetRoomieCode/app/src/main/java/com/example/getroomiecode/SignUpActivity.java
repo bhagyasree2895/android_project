@@ -8,56 +8,96 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class SignUpActivity extends AppCompatActivity {
 
-//    EditText fullName;
-//    EditText gender;
-//    EditText mobile;
-//    EditText username;
-//    EditText password;
-//    EditText confirmPass;
-//    Button signUp;
+    EditText fullName;
+    EditText mobile;
+    EditText username;
+    EditText pass;
+    EditText confirmPass;
+    Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-//        fullName=findViewById(R.id.fullNameET);
-//        gender=findViewById(R.id.genderET);
-//        mobile=findViewById(R.id.mobileET);
-//        username=findViewById(R.id.userIdET);
-//        password=findViewById(R.id.passwordET);
-//        confirmPass=findViewById(R.id.confirmPswdET);
-//        signUp=findViewById(R.id.signInBTN);
-//        signUp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                checkDataEntered();
-//            }
-//        });
+        fullName=findViewById(R.id.fullNameET);
+        mobile=findViewById(R.id.mobileET);
+        username=findViewById(R.id.userIdET);
+        pass=findViewById(R.id.passwordET);
+        confirmPass=findViewById(R.id.confirmPswdET);
+        signUp=findViewById(R.id.signUpBTN1);
     }
     //SignIn action
     public void gotoSuccessfulSignUpActivityAction(View v) {
-        try {
-            Intent toOtherIntent = new Intent(this, SuccessfulSignUpActivity.class);
-            startActivity(toOtherIntent);
+        //Fullname Field validation
+        final String fName=fullName.getText().toString();
+        if(fName.length()==0){
+            fullName.requestFocus();
+            fullName.setError("Name field cannot be empty!!");
+        }
+        else if(!fName.matches("[a-zA-Z ]+"))
+        {
+            fullName.requestFocus();
+            fullName.setError("ENTER ONLY ALPHABETICAL CHARACTER");
+        }
 
-        } catch (Exception e) {
+        //Mobile Number validation
+        final String mobNum=mobile.getText().toString();
+        if(mobNum.length()==0|| mobNum.length()>11){
+            mobile.requestFocus();
+            mobile.setError("Mobile Field is Empty/ too Long");
+        }
+        else if (!Pattern.matches("[0-9]+",mobNum)){
+            mobile.setError("Mobile Field should contain only numerical values");
+        }
 
+        //UserId validation
+        final String user=username.getText().toString();
+        if(user.length()==0){
+            username.requestFocus();
+            username.setError("Name field cannot be empty!!");
+        }
+
+        //Password validation
+        final String p=pass.getText().toString();
+        if(p.length()<8&&!isValidPassword(p)){
+            pass.requestFocus();
+            pass.setError("Enter Valid Password with atleast 1 capital letter, 1 small letter, 1 number and a symbol");
+        }
+
+        //Confirm Password Validation
+        final String Cpass=confirmPass.getText().toString();
+        if(!(Cpass.equals(p))){
+            confirmPass.requestFocus();
+            confirmPass.setError("Password and Confirm Password does not match");
+        }
+
+        else {
+            try {
+                Intent toOtherIntent = new Intent(this, SuccessfulSignUpActivity.class);
+                startActivity(toOtherIntent);
+
+            } catch (Exception e) {
+
+            }
         }
     }
-//    void checkDataEntered(){
-//        if(isEmpty(fullName)){
-//            Toast t=Toast.makeText(this,"You must enter your full name!!!!!",Toast.LENGTH_SHORT);
-//            t.show();
-//        }
-//    }
-//    boolean isEmpty(EditText text){
-//        CharSequence str=text.getText().toString();
-//        return TextUtils.isEmpty(str);
-//    }
+    public static boolean isValidPassword(final String password) {
+
+        Pattern pattern;
+        Matcher matcher;
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+
+        return matcher.matches();
+
+    }
 }
