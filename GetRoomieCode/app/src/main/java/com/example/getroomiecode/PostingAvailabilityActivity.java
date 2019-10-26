@@ -8,18 +8,24 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.regex.Pattern;
 
 public class PostingAvailabilityActivity extends AppCompatActivity {
     public static final int RESULT_LOAD_IMG=1;
+    EditText aptType;
+    EditText availability;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posting_availability);
+        aptType=findViewById(R.id.aptTypeET);
+        availability=findViewById(R.id.availabilityET);
     }
     public void gotohomePage(View v) {
         try {
@@ -64,12 +70,27 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         }
     }
     public void onSubmit(View v) {
-        try {
-            Intent toOtherIntent = new Intent(this, SubmitActivity.class);
-            startActivity(toOtherIntent);
+        final String apt=aptType.getText().toString();
+        final String avail=availability.getText().toString();
+        if(apt.length()==0){
+            aptType.requestFocus();
+            aptType.setError("AptType field cannot be empty!!");
+        }
+        else if(avail.length()==0|| avail.length()>2){
+            availability.requestFocus();
+            availability.setError("Availability Field is Empty/ too Long");
+        }
+        else if (!Pattern.matches("[0-9]+",avail)){
+            availability.setError("Availability Field should contain only numerical values");
+        }
 
-        } catch (Exception e) {
+        else {
+            try {
+                Intent toOtherIntent = new Intent(this, SubmitActivity.class);
+                startActivity(toOtherIntent);
 
+            } catch (Exception e) {
+            }
         }
 
     }
