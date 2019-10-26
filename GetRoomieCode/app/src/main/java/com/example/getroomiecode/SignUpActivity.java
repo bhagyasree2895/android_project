@@ -38,6 +38,10 @@ public class SignUpActivity extends AppCompatActivity {
     public void gotoSuccessfulSignUpActivityAction(View v) {
         //Fullname Field validation
         final String fName=fullName.getText().toString();
+        final String mobNum=mobile.getText().toString();
+        final String user=username.getText().toString();
+        final String p=pass.getText().toString();
+        final String Cpass=confirmPass.getText().toString();
         if(fName.length()==0){
             fullName.requestFocus();
             fullName.setError("Name field cannot be empty!!");
@@ -49,8 +53,8 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         //Mobile Number validation
-        final String mobNum=mobile.getText().toString();
-        if(mobNum.length()==0|| mobNum.length()>11){
+
+        else if(mobNum.length()==0|| mobNum.length()>11){
             mobile.requestFocus();
             mobile.setError("Mobile Field is Empty/ too Long");
         }
@@ -59,22 +63,20 @@ public class SignUpActivity extends AppCompatActivity {
         }
 
         //UserId validation
-        final String user=username.getText().toString();
-        if(user.length()==0){
+
+        else if(user.length()==0){
             username.requestFocus();
             username.setError("Name field cannot be empty!!");
         }
 
         //Password validation
-        final String p=pass.getText().toString();
-        if(p.length()<8&&!isValidPassword(p)){
+        else if(p.length()<8&&!isValidPassword(p)){
             pass.requestFocus();
             pass.setError("Enter Valid Password with atleast 1 capital letter, 1 small letter, 1 number and a symbol");
         }
 
         //Confirm Password Validation
-        final String Cpass=confirmPass.getText().toString();
-        if(!(Cpass.equals(p))){
+        else if(!(Cpass.equals(p))){
             confirmPass.requestFocus();
             confirmPass.setError("Password and Confirm Password does not match");
         }
