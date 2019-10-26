@@ -35,9 +35,10 @@ public class MainActivity extends AppCompatActivity {
             username.requestFocus();
             username.setError("Name field cannot be empty!!");
         }
-        else if(p.length()<8&&!isValidPassword(p)){
+
+        else if(p.length()<9&&!isValidPassword(p)){
             pass.requestFocus();
-            pass.setError("Enter Valid Password with atleast 1 capital letter, 1 small letter, 1 number and a symbol");
+            pass.setError("Enter Valid Password with atleast min 8 Chars with atleast 1 capital letter, 1 small letter, 1 number and a symbol");
         }
         else {
             try {
