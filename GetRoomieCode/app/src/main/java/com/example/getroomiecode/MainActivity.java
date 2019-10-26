@@ -3,9 +3,11 @@ package com.example.getroomiecode;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         username=findViewById(R.id.usernameET);
         pass=findViewById(R.id.passwordET);
+        TextView frgtPwd=findViewById(R.id.frgtPwdTV);
+        frgtPwd.setPaintFlags(frgtPwd.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
     }
 
     //SignIn action
