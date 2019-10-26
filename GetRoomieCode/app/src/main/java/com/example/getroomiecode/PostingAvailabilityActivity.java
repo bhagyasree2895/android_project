@@ -20,12 +20,19 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
     public static final int RESULT_LOAD_IMG=1;
     EditText aptType;
     EditText availability;
+    EditText address;
+    EditText pincode;
+    EditText mobile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posting_availability);
         aptType=findViewById(R.id.aptTypeET);
         availability=findViewById(R.id.availabilityET);
+        address=findViewById(R.id.addressET);
+        pincode=findViewById(R.id.pincodeET);
+        mobile=findViewById(R.id.mobileET);
+
     }
     public void gotohomePage(View v) {
         try {
@@ -76,13 +83,18 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
             aptType.requestFocus();
             aptType.setError("AptType field cannot be empty!!");
         }
-        else if(avail.length()==0|| avail.length()>2){
+        else if(avail.length()==0){
             availability.requestFocus();
-            availability.setError("Availability Field is Empty/ too Long");
+            availability.setError("Availability Field is Empty");
         }
         else if (!Pattern.matches("[0-9]+",avail)){
             availability.setError("Availability Field should contain only numerical values");
         }
+        else if(avail.length()>2){
+            availability.requestFocus();
+            availability.setError("Availability Field is too Long");
+        }
+
 
         else {
             try {
