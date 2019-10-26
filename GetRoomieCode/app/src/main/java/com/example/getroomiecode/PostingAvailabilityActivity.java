@@ -79,6 +79,9 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
     public void onSubmit(View v) {
         final String apt=aptType.getText().toString();
         final String avail=availability.getText().toString();
+        final String addr=address.getText().toString();
+        final String pin=pincode.getText().toString();
+        final String mobl=mobile.getText().toString();
         if(apt.length()==0){
             aptType.requestFocus();
             aptType.setError("AptType field cannot be empty!!");
@@ -93,6 +96,14 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         else if(avail.length()>2){
             availability.requestFocus();
             availability.setError("Availability Field is too Long");
+        }
+        else if(addr.length()==0){
+            address.requestFocus();
+            address.setError("Address Field is empty");
+        }
+        else if(addr.length()>50){
+            address.requestFocus();
+            address.setError("Address length is too long: Max 50 Chars");
         }
 
 
