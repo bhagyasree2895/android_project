@@ -32,7 +32,6 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         address=findViewById(R.id.addressET);
         pincode=findViewById(R.id.pincodeET);
         mobile=findViewById(R.id.mobileET);
-
     }
     public void gotohomePage(View v) {
         try {
