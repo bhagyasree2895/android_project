@@ -5,12 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.parse.GetCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+import com.parse.ParseInstallation;
+
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         pass=findViewById(R.id.passwordET);
         TextView frgtPwd=findViewById(R.id.frgtPwdTV);
         frgtPwd.setPaintFlags(frgtPwd.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        Parse.initialize(this);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
     }
 
     //SignIn action

@@ -29,6 +29,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data android:name="com.parse.SERVER_URL"
+            android:value="https://parseapi.back4app.com"/>
+        <meta-data android:name="com.parse.APPLICATION_ID"
+            android:value="PgdqtLkBa0JiQ8zCrSk0YjHe5TpRRXoQwXXJApKA"/>
+        <meta-data android:name="com.parse.CLIENT_KEY"
+            android:value="hDTeYzO4WGTnvdJFacBESOZTZL04xsb0SqaIlfJZ"/>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>
