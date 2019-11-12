@@ -2,6 +2,6 @@
     <string name="app_name">GetRoomie</string>
     <string name="back4app_server_url">https://parseapi.back4app.com/</string>
     <!-- Change the following strings as required -->
-    <string name="back4app_app_id">PgdqtLkBa0JiQ8zCrSk0YjHe5TpRRXoQwXXJApKA</string>
-    <string name="back4app_client_key">hDTeYzO4WGTnvdJFacBESOZTZL04xsb0SqaIlfJZ</string>
+    <string name="back4app_app_id">Jp85UdwrCFJOrNJjij4ckORMgDkkq1sP8y0qGLAi</string>
+    <string name="back4app_client_key">ycpRFcKrphpieDNnLkk8lhij76iX8L5zmWiyzj8l</string>
 </resources>
