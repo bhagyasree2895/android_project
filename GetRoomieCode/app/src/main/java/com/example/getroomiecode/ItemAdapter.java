@@ -1,11 +1,15 @@
 package com.example.getroomiecode;
 
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.LinearGradient;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -15,8 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
-    public ArrayList<RoomItem> roomList;
+    private ArrayList<RoomItem> roomList;
     private List<RoomItem> CompleteRoomList;
+    private Context context;
+    public ItemAdapter(ArrayList<RoomItem> roomList, Context context){
+        this.roomList=roomList;
+        this.context=context;
+    }
 
 
 
@@ -24,12 +33,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         public ImageView mImageView;
         public TextView mTextView1;
         public TextView mTextView2;
-
+        public LinearLayout lt;
         public ItemViewHolder(View itemView) {
             super(itemView);
             mImageView = itemView.findViewById(R.id.imageView);
             mTextView1 = itemView.findViewById(R.id.textView);
             mTextView2 = itemView.findViewById(R.id.textView2);
+            lt=itemView.findViewById(R.id.linearlayout);
         }
     }
 
@@ -54,7 +64,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.mImageView.setImageResource(currentItem.getImageResource());
         holder.mTextView1.setText(currentItem.getText1());
         holder.mTextView2.setText(currentItem.getText2());
+        holder.lt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in=new Intent(context,Room1DetailsActivity.class);
+                
+                context.startActivity(in);
+
+            }
+        });
     }
+
 
     @Override
     public int getItemCount() {

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,11 +15,11 @@ import android.widget.SearchView;
 import java.util.ArrayList;
 
 public class RoomsListView extends AppCompatActivity implements SearchView.OnQueryTextListener {
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter adapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private ArrayList<RoomItem> roomList;
-
+    public RecyclerView mRecyclerView;
+    public RecyclerView.Adapter adapter;
+    public RecyclerView.LayoutManager mLayoutManager;
+    public ArrayList<RoomItem> roomList;
+    private GestureDetector mDetector;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +30,8 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
         roomList.add(new RoomItem(R.drawable.roomingone, "FoxAlley", "210$"));
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        adapter = new ItemAdapter(roomList);
+        mLayoutManager = new LinearLayoutManager(RoomsListView.this);
+        adapter = new ItemAdapter(roomList,RoomsListView.this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(adapter);
     }
