@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>  implements Filterable {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
     public ArrayList<RoomItem> roomList;
-    private List<RoomItem> roomListFull;
+    private List<RoomItem> CompleteRoomList;
 
 
 
@@ -36,7 +36,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public ItemAdapter(ArrayList<RoomItem> roomList) {
         this.roomList = roomList;
-        roomListFull =new ArrayList<>(roomList);
+        CompleteRoomList =new ArrayList<>(roomList);
     }
 
 
@@ -60,41 +60,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public int getItemCount() {
         return roomList.size();
     }
-    @Override
-    public Filter getFilter() {
-       return ItemFilter;
-    }
-    private Filter ItemFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            List<RoomItem> filteredList = new ArrayList<>();
-            if (constraint == null || constraint.length() == 0) {
-                filteredList.addAll(roomListFull);
-            } else {
-                String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (RoomItem item : roomListFull) {
-                    if (item.getText2().toLowerCase().contains(filterPattern)) {
-                        filteredList.add(item);
-                    }
-                    else if(item.getText1().toLowerCase().contains(filterPattern))
-                    {
-                        filteredList.add(item);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
-            roomList.clear();
-            roomList.addAll((List) results.values);
-            notifyDataSetChanged();
-        }
-    };
 
 }
