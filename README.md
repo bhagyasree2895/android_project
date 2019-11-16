@@ -19,5 +19,10 @@ Our application can run in every Android mobile devices.
 1. Clone our repo.
 1. Open our project in Android studio.
 1. Run the application in any AVD or GVD.
+
+### Test Credentials:
+Username: Bhagyasree@345
+Password: Bearcat123$
+
  
 
