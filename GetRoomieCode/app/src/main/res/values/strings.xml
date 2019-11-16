@@ -4,4 +4,5 @@
     <!-- Change the following strings as required -->
     <string name="back4app_app_id">Jp85UdwrCFJOrNJjij4ckORMgDkkq1sP8y0qGLAi</string>
     <string name="back4app_client_key">ycpRFcKrphpieDNnLkk8lhij76iX8L5zmWiyzj8l</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
