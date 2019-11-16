@@ -5,9 +5,10 @@
 
 ## Teammates:
 
+1. Bhagya Sree Chanda
 1. Nikitha Lakmarapu
 1. Leela Krishna Kosaraju
-1. Bhagya Sree Chanda
+
 
 ### Introduction to our project:
 This application is mainly used for a person to find room mate. He/She can post his/her room availability or he/she can view posted room availabilities.
@@ -25,5 +26,6 @@ Username: Bhagyasree@345
 
 Password: Bearcat123$
 
- 
+Apk file: 
+![alt text](app-debug.apk)
 
