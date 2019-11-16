@@ -69,41 +69,40 @@ public class MainActivity extends AppCompatActivity {
             pass.setError("Enter Valid Password with atleast min 8 Chars with atleast 1 capital letter, 1 small letter, 1 number and a symbol");
         }
         else {
-            try {
-                Intent toOtherIntent = new Intent(this, SignInActivity.class);
-                startActivity(toOtherIntent);
+            final ProgressDialog dlg = new ProgressDialog(MainActivity.this);
+            dlg.setTitle("Please, wait a moment.");
+            dlg.setMessage("Logging in...");
+            dlg.show();
 
-            } catch (Exception e) {
-            }
+            ParseUser.logInInBackground(
+                    username.getText().toString(),
+                    pass.getText().toString(),
+                    new LogInCallback() {
+                        @Override
+                        public void done(ParseUser parseUser, ParseException e) {
+                            if (parseUser != null) {
+                                dlg.dismiss();
+                                Toast.makeText(MainActivity.this, "Sucessful Login", Toast.LENGTH_LONG).show();
+                                object_id = parseUser.getObjectId();
+                                 try {
+                                    Intent toOtherIntent = new Intent(getApplicationContext(), SignInActivity.class);
+                                    startActivity(toOtherIntent);
+                                } catch (Exception e1) {
+                                }
+                                alertDisplayer("Sucessful Login","Welcome back " + username.getText().toString() + "!");
+
+                            } else {
+                                dlg.dismiss();
+                                ParseUser.logOut();
+                                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
         }
 
 
 
-        final ProgressDialog dlg = new ProgressDialog(MainActivity.this);
-        dlg.setTitle("Please, wait a moment.");
-        dlg.setMessage("Logging in...");
-        dlg.show();
 
-        ParseUser.logInInBackground(
-                username.getText().toString(),
-                pass.getText().toString(),
-                new LogInCallback() {
-                    @Override
-                    public void done(ParseUser parseUser, ParseException e) {
-                        if (parseUser != null) {
-                            dlg.dismiss();
-                            Toast.makeText(MainActivity.this, "Sucessful Login", Toast.LENGTH_LONG).show();
-                            alertDisplayer("Sucessful Login","Welcome back " + username.getText().toString() + "!");
-
-                            object_id = parseUser.getObjectId();
-
-                        } else {
-                            dlg.dismiss();
-                            ParseUser.logOut();
-                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
     }
     //SignIn action
     public void gotoSignUpAction(View v) {
