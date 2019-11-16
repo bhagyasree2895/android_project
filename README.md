@@ -26,6 +26,5 @@ Username: Bhagyasree@345
 
 Password: Bearcat123$
 
-Apk file: 
-![alt text](app-debug.apk)
+Apk file: Attached file is at GetRoomie/app-debug.apk
 
