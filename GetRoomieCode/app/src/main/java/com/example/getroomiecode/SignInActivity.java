@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,21 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+    }
+    public void getLocationAction(View v) {
+        Intent ini = new Intent(this, MapsActivity.class);
+        startActivityForResult(ini,11);
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent roomInt) {
+        super.onActivityResult(requestCode, resultCode, roomInt);
+        if (requestCode == 11) {
+            if (resultCode == 11) {
+                String str = roomInt.getStringExtra("LocationName");
+                TextView incidentLocTV = findViewById(R.id.locationTV);
+                incidentLocTV.setText(str);
+            }
+        }
     }
     //Search room availability
     public void gotoSearchRoom(View v) {
