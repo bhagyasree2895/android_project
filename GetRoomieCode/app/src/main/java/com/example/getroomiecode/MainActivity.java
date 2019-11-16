@@ -1,7 +1,10 @@
 package com.example.getroomiecode;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -9,11 +12,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.parse.GetCallback;
+import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -27,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText username;
     EditText pass;
+    public static String object_id = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +46,13 @@ public class MainActivity extends AppCompatActivity {
         frgtPwd.setPaintFlags(frgtPwd.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         Parse.initialize(this);
         ParseInstallation.getCurrentInstallation().saveInBackground();
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId(getString(R.string.back4app_app_id))
+                // if defined
+                .clientKey(getString(R.string.back4app_client_key))
+                .server(getString(R.string.back4app_server_url))
+                .build()
+        );
     }
 
     //SignIn action
@@ -61,6 +76,34 @@ public class MainActivity extends AppCompatActivity {
             } catch (Exception e) {
             }
         }
+
+
+
+        final ProgressDialog dlg = new ProgressDialog(MainActivity.this);
+        dlg.setTitle("Please, wait a moment.");
+        dlg.setMessage("Logging in...");
+        dlg.show();
+
+        ParseUser.logInInBackground(
+                username.getText().toString(),
+                pass.getText().toString(),
+                new LogInCallback() {
+                    @Override
+                    public void done(ParseUser parseUser, ParseException e) {
+                        if (parseUser != null) {
+                            dlg.dismiss();
+                            Toast.makeText(MainActivity.this, "Sucessful Login", Toast.LENGTH_LONG).show();
+                            alertDisplayer("Sucessful Login","Welcome back " + username.getText().toString() + "!");
+
+                            object_id = parseUser.getObjectId();
+
+                        } else {
+                            dlg.dismiss();
+                            ParseUser.logOut();
+                            Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
     }
     //SignIn action
     public void gotoSignUpAction(View v) {
@@ -84,5 +127,22 @@ public class MainActivity extends AppCompatActivity {
         return matcher.matches();
 
     }
-
+    private void alertDisplayer(String title,String message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                        //username= username.getText().toString();
+                        Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                        intent.putExtra("email", username.getText().toString());
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                    }
+                });
+        AlertDialog ok = builder.create();
+        ok.show();
+    }
 }
