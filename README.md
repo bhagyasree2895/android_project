@@ -11,7 +11,7 @@
 
 
 ### Introduction to our project:
-This application is mainly used for a person to find room mate. He/She can post his/her room availability or he/she can view posted room availabilities.
+This application is mainly used for a person to find room mate. The user can post their room availability or The user can view posted room availabilities.
 
 Our application can run in every Android mobile devices.
 
@@ -20,6 +20,7 @@ Our application can run in every Android mobile devices.
 1. Clone our repo.
 1. Open our project in Android studio.
 1. Run the application in any AVD or GVD.
+1. Install Google play services SDK in Android studio.
 
 ### Test Credentials:
 Username: Bhagyasree@345
