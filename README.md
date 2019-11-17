@@ -23,6 +23,7 @@ Our application can run in every Android mobile devices.
 
 ### Test Credentials:
 Username: Bhagyasree@345
+
 Password: Bearcat123$
 
 ### Apk file: 
@@ -34,4 +35,7 @@ Any device with minimun Android Sdk version API21(5.0) our application works on 
 Requires Google Play Services for Accessing Current location through Android Studio.
 
 ### Sequence Information:
-
+##### Registration
+##### Login
+##### Search Room
+##### Post Room
