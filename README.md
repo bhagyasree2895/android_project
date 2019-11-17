@@ -23,9 +23,15 @@ Our application can run in every Android mobile devices.
 
 ### Test Credentials:
 Username: Bhagyasree@345
-
 Password: Bearcat123$
 
 ### Apk file: 
 Attached file is at GetRoomie/app-debug.apk
+
+### Supported Devices:
+
+Any device with minimun Android Sdk version API21(5.0) our application works on that device.
+Requires Google Play Services for Accessing Current location through Android Studio.
+
+### Sequence Information:
 
