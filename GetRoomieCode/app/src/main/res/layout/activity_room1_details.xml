@@ -128,12 +128,12 @@
         app:layout_constraintHorizontal_bias="0.711"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.811" />
+        app:layout_constraintVertical_bias="0.821" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="134dp"
-        android:layout_height="65dp"
+        android:layout_width="131dp"
+        android:layout_height="68dp"
         android:background="#000000"
         android:text="Cost per Person"
         android:textAlignment="center"

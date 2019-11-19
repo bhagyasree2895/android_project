@@ -8,4 +8,11 @@
         android:title="Search"
         app:actionViewClass="android.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
+    <item
+        android:id="@+id/filter"
+        android:title="filter"
+       android:clickable="true"
+        app:showAsAction="ifRoom|collapseActionView"
+        />
+
 </menu>

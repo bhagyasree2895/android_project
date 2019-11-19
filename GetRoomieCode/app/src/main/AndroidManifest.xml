@@ -3,6 +3,9 @@
     package="com.example.getroomiecode">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RoomsListView"></activity>
+        <activity android:name=".filterActivity"></activity>
+        <activity android:name=".RoomsListView" />
         <activity android:name=".ContactActivity" />
         <activity android:name=".SearchResultsImagesActivity" />
         <activity android:name=".SuccessfulSignUpActivity" />
@@ -35,6 +39,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
+
             <meta-data
                 android:name="com.google.android.geo.API_KEY"
                 android:value="@string/google_maps_key" />
@@ -46,19 +51,19 @@
             You need a different API key for each encryption key, including the release key that is used to
             sign the APK for publishing.
             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-       -->
+        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBydfr8tMoopaNoKqzBdA71pqbC7nx6rng" />
-        <meta-data android:name="com.parse.SERVER_URL"
-            android:value="https://parseapi.back4app.com"/>
-        <meta-data android:name="com.parse.APPLICATION_ID"
-            android:value="Jp85UdwrCFJOrNJjij4ckORMgDkkq1sP8y0qGLAi"/>
-        <meta-data android:name="com.parse.CLIENT_KEY"
-            android:value="ycpRFcKrphpieDNnLkk8lhij76iX8L5zmWiyzj8l"/>
+        <meta-data
+            android:name="com.parse.SERVER_URL"
+            android:value="https://parseapi.back4app.com" />
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="Jp85UdwrCFJOrNJjij4ckORMgDkkq1sP8y0qGLAi" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="ycpRFcKrphpieDNnLkk8lhij76iX8L5zmWiyzj8l" />
     </application>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>
