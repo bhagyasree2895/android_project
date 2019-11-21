@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.Menu;
@@ -43,7 +44,16 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
         final MenuItem searchItem = menu.findItem(R.id.action_search);
         final SearchView searchView = (SearchView) searchItem.getActionView();
         searchView.setOnQueryTextListener(this);
+
         return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        if(item.getItemId()==R.id.filter){
+            Intent toOtherIntent = new Intent(this, filterActivity.class);
+            startActivity(toOtherIntent);
+        }
+      return true;
     }
 
     @Override

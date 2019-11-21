@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                                     startActivity(toOtherIntent);
                                 } catch (Exception e1) {
                                 }
-                                alertDisplayer("Sucessful Login","Welcome back " + username.getText().toString() + "!");
+                                alertDisplayer("Successful Login","Welcome back " + username.getText().toString() + "!");
 
                             } else {
                                 dlg.dismiss();
