@@ -7,14 +7,26 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+import com.parse.SaveCallback;
+
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
+
+import javax.security.auth.callback.Callback;
 
 public class PostingAvailabilityActivity extends AppCompatActivity {
     public static final int RESULT_LOAD_IMG=1;
@@ -23,6 +35,8 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
     EditText address;
     EditText pincode;
     EditText mobile;
+    Bitmap selectedImage;
+    ParseObject room;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +46,13 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         address=findViewById(R.id.addressET);
         pincode=findViewById(R.id.pincodeET);
         mobile=findViewById(R.id.mobileET);
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId(getString(R.string.back4app_app_id))
+                // if defined
+                .clientKey(getString(R.string.back4app_client_key))
+                .server(getString(R.string.back4app_server_url))
+                .build()
+        );
     }
     public void gotohomePage(View v) {
         try {
@@ -60,11 +81,18 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         super.onActivityResult(reqCode, resultCode, data);
 
         ImageView imageView11=findViewById(R.id.imageView11);
+
+        String picturePath = PreferenceManager.getDefaultSharedPreferences(this).getString("picturePath", "");
+        if (!picturePath.equals("")) {
+            ImageView imageView = (ImageView) findViewById(R.id.imageView11);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+        }
+
         if (resultCode == RESULT_OK) {
             try {
                 final Uri imageUri = data.getData();
                 final InputStream imageStream = getContentResolver().openInputStream(imageUri);
-                final Bitmap selectedImage = BitmapFactory.decodeStream(imageStream);
+                selectedImage= BitmapFactory.decodeStream(imageStream);
                 imageView11.setImageBitmap(selectedImage);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -130,5 +158,76 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
             } catch (Exception e) {
             }
         }
+        room= new ParseObject("Room");
+        room.put("AptType",apt);
+        room.put("Availability",avail);
+        room.put("Address",addr);
+        room.put("Pincode",pin);
+        room.put("MobileOrEmail",mobl);
+//        Bitmap imageBitmap = selectedImage;
+////        // Locate the image in res >
+////
+////        Bitmap bitmap = BitmapFactory.decodeFile("picturePath");
+////        // Convert it to byte
+//       Byte[] stream = new Byte();
+//        // Compress image to lower quality scale 1 - 100
+//        imageBitmap.compress(Bitmap.CompressFormat.PNG, 100,ByteArrayOutputStream(stre));
+//
+//        Object image = null;
+//        try {
+//            String path = null;
+//            image = imageBitmap;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        // Create the ParseFile
+//        ParseFile file = new ParseFile("picturePath", (byte[]) image);
+//        // Upload the image into Parse Cloud
+//        file.saveInBackground();
+//
+//        // Create a New Class called "ImageUpload" in Parse
+//        //ParseObject imgupload = new ParseObject("Image");
+//
+//        // Create a column named "ImageName" and set the string
+//        room.put("Image", "picturePath");
+//
+//
+//        // Create a column named "ImageFile" and insert the image
+//        room.put("ImageFile", file);
+
+        // Create the class and the columns
+        //imgupload.saveInBackground();
+
+        // Show a simple toast message
+
+
+
+//        files.saveInBackground(new SaveCallback() {
+//
+//            @Override
+//            public void done(ParseException exception) {
+//                if (exception == null) {
+//                    room.put("<parse-column-name>", files);
+//                    ParseUser.getCurrentUser().saveInBackground();
+//                }
+//            }
+//        });
+
+        //I think parse has similar support If not this
+        //room.put("Roomphoto",imageBitmap);
+        //room.saveInBackground();
+        Log.d("Parse","Room Object saved pc "+ room.getObjectId());
+        room.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                Toast.makeText(getApplicationContext(),"Save "+e,Toast.LENGTH_LONG).show();
+                Log.d("Parse","Room Object saved cb "+ room.getObjectId());
+                Log.d("Parse","Room Saved at "+ room.getCreatedAt());
+
+            }
+        });
+        Log.d("Parse","Room Object saved ac "+ room.getObjectId());
     }
 }
+
