@@ -164,6 +164,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         room.put("Address",addr);
         room.put("Pincode",pin);
         room.put("MobileOrEmail",mobl);
+        room.put("objectid",MainActivity.object_id);
 //        Bitmap imageBitmap = selectedImage;
 ////        // Locate the image in res >
 ////
@@ -221,7 +222,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         room.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
-                Toast.makeText(getApplicationContext(),"Save "+e,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"Save "+e,Toast.LENGTH_LONG).show();
                 Log.d("Parse","Room Object saved cb "+ room.getObjectId());
                 Log.d("Parse","Room Saved at "+ room.getCreatedAt());
 

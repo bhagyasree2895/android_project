@@ -46,14 +46,14 @@ public class SignUpActivity extends AppCompatActivity {
         fullName = findViewById(R.id.fullNameET);
         gender=findViewById(R.id.RadioGender);
         RadioGroup gender =  findViewById(R.id.RadioGender);
-        gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                radioButtonGender = findViewById(checkedId);
-                genderStr=radioButtonGender.getText().toString();
-            }
-        });
+
+            gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, int checkedId) {
+                    radioButtonGender = findViewById(checkedId);
+                    genderStr = radioButtonGender.getText().toString();
+                }
+            });
         mobile = findViewById(R.id.mobileET);
         username = findViewById(R.id.userIdET);
         pass = findViewById(R.id.passwordET);
@@ -86,9 +86,9 @@ public class SignUpActivity extends AppCompatActivity {
 
         //Mobile Number validation
 
-        else if (mobNum.length() == 0 || mobNum.length() > 11) {
+        else if (mobNum.length() == 0 || mobNum.length() < 10) {
             mobile.requestFocus();
-            mobile.setError("Mobile Field is Empty/ too Long");
+            mobile.setError("Mobile Field is Empty/ too short");
         } else if (!Pattern.matches("[0-9]+", mobNum)) {
             mobile.setError("Mobile Field should contain only numerical values");
         }
@@ -121,9 +121,12 @@ public class SignUpActivity extends AppCompatActivity {
         Log.d("Parse","Register Start");
 
         final ParseUser sing_up_user = new ParseUser();
+        try {
         sing_up_user.put("Fullname", fullName.getText().toString());
-        sing_up_user.put("Gender",genderStr);
+        sing_up_user.put("Gender", genderStr);
         sing_up_user.put("Mobile", (mobile.getText().toString()));
+        }
+        catch(Exception e){}
         sing_up_user.setUsername(username.getText().toString());
         sing_up_user.setPassword(pass.getText().toString());
         sing_up_user.signUpInBackground(new SignUpCallback() {
