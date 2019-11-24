@@ -227,7 +227,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Male"
-            android:checked="true"
+
             android:buttonTint="#000000"/>
 
         <RadioButton
@@ -235,6 +235,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Female"
+
             android:buttonTint="#000000"/>
 
         <RadioButton

@@ -38,19 +38,22 @@ public class SignUpActivity extends AppCompatActivity {
     String genderStr;
     public static String object_id = null;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         fullName = findViewById(R.id.fullNameET);
         gender=findViewById(R.id.RadioGender);
-        //int genderId=gender.getCheckedRadioButtonId();
-        // get selected radio button from radioGroup
-        int selectedId = gender.getCheckedRadioButtonId();
-
-        // find the radiobutton by returned id
-        radioButtonGender = (RadioButton) findViewById(selectedId);
-        genderStr=radioButtonGender.getText().toString();
+        RadioGroup gender =  findViewById(R.id.RadioGender);
+        gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                radioButtonGender = findViewById(checkedId);
+                genderStr=radioButtonGender.getText().toString();
+            }
+        });
         mobile = findViewById(R.id.mobileET);
         username = findViewById(R.id.userIdET);
         pass = findViewById(R.id.passwordET);
