@@ -12,8 +12,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
+import android.widget.TextView;
+
+import com.parse.FindCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseInstallation;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RoomsListView extends AppCompatActivity implements SearchView.OnQueryTextListener {
     public RecyclerView mRecyclerView;
@@ -21,11 +32,33 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
     public RecyclerView.LayoutManager mLayoutManager;
     public ArrayList<RoomItem> roomList;
     private GestureDetector mDetector;
+    private List<ParseObject> lastResult=new ArrayList<ParseObject>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Parse.initialize(this);
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId(getString(R.string.back4app_app_id))
+                // if defined
+                .clientKey(getString(R.string.back4app_client_key))
+                .server(getString(R.string.back4app_server_url))
+                .build()
+        );
         setContentView(R.layout.activity_rooms_list_view);
         roomList = new ArrayList<>();
+        ParseQuery<ParseObject> query= ParseQuery.getQuery("Room");
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                lastResult = objects;
+
+                for(ParseObject po:objects){
+                    String name=po.getString("Address");
+
+                }
+            }
+        });
         roomList.add(new RoomItem(R.drawable.roomingone, "Horizons", "250$"));
         roomList.add(new RoomItem(R.drawable.roomingtwo, "Village O", "190$"));
         roomList.add(new RoomItem(R.drawable.roomingone, "FoxAlley", "210$"));

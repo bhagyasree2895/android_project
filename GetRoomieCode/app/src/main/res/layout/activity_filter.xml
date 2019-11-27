@@ -25,10 +25,10 @@
 
     <TextView
         android:id="@+id/availabilityFilterTV"
-        android:layout_width="107dp"
-        android:layout_height="32dp"
+        android:layout_width="98dp"
+        android:layout_height="57dp"
         android:background="#000000"
-        android:text="Availability"
+        android:text="Available For"
         android:textAlignment="center"
         android:textColor="#CA175A"
         android:textSize="20dp"
@@ -53,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.253" />
+        app:layout_constraintVertical_bias="0.278" />
 
     <Button
         android:id="@+id/applyBTN"
@@ -77,25 +77,25 @@
         android:min="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.608"
+        app:layout_constraintHorizontal_bias="0.594"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.254" />
+        app:layout_constraintVertical_bias="0.277" />
 
     <TextView
         android:id="@+id/seekbarTV"
         android:layout_width="72dp"
         android:layout_height="30dp"
         android:background="#FFFFFF"
-        android:text=""
+        android:text="100$"
         android:textAlignment="center"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.932"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.258" />
+        app:layout_constraintVertical_bias="0.293" />
 
     <TextView
         android:id="@+id/genderPreferenceTV"
@@ -115,8 +115,8 @@
 
     <RadioGroup
         android:id="@+id/RadioGender"
-        android:layout_width="214dp"
-        android:layout_height="30dp"
+        android:layout_width="219dp"
+        android:layout_height="34dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +130,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="#000000"
-            android:checked="true"
             android:text="Male" />
 
         <RadioButton
