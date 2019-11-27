@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -32,6 +33,7 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
     public RecyclerView.LayoutManager mLayoutManager;
     public ArrayList<RoomItem> roomList;
     private GestureDetector mDetector;
+    public String name;
     private List<ParseObject> lastResult=new ArrayList<ParseObject>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,20 +56,17 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
                 lastResult = objects;
 
                 for(ParseObject po:objects){
-                    String name=po.getString("Address");
-
+                    name=po.getString("Address");
+                    roomList.add(new RoomItem(R.drawable.roomingone, name, "250$"));
+                    mRecyclerView = findViewById(R.id.recyclerView);
+                    mRecyclerView.setHasFixedSize(true);
+                    mLayoutManager = new LinearLayoutManager(RoomsListView.this);
+                    adapter = new ItemAdapter(roomList,RoomsListView.this);
+                    mRecyclerView.setLayoutManager(mLayoutManager);
+                    mRecyclerView.setAdapter(adapter);
                 }
             }
         });
-        roomList.add(new RoomItem(R.drawable.roomingone, "Horizons", "250$"));
-        roomList.add(new RoomItem(R.drawable.roomingtwo, "Village O", "190$"));
-        roomList.add(new RoomItem(R.drawable.roomingone, "FoxAlley", "210$"));
-        mRecyclerView = findViewById(R.id.recyclerView);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(RoomsListView.this);
-        adapter = new ItemAdapter(roomList,RoomsListView.this);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(adapter);
     }
 
     @Override
