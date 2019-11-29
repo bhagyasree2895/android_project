@@ -106,7 +106,7 @@
         android:text="2 BHK Non-Furnished"
         android:textAlignment="center"
         android:textColor="#CA175A"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.701"

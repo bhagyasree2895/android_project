@@ -68,9 +68,10 @@
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:background="#000000"
-        android:text="Mobile/Email"
+        android:text="Mobile"
         android:textColor="#CA175A"
-        android:textSize="24sp"
+        android:textSize="28sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
@@ -79,11 +80,11 @@
         app:layout_constraintVertical_bias="0.733" />
 
     <TextView
-        android:id="@+id/pincodeTV"
+        android:id="@+id/priceTV"
         android:layout_width="150dp"
         android:layout_height="45dp"
         android:background="#000000"
-        android:text="PinCode"
+        android:text="Price"
         android:textColor="#CA175A"
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -170,7 +171,7 @@
         app:layout_constraintVertical_bias="0.515" />
 
     <EditText
-        android:id="@+id/pincodeET"
+        android:id="@+id/priceET"
         android:layout_width="174dp"
         android:layout_height="46dp"
         android:background="#FFFFFF"

@@ -16,24 +16,19 @@ import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseException;
-import com.parse.ParseFile;
 import com.parse.ParseObject;
-import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
-import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
-
-import javax.security.auth.callback.Callback;
 
 public class PostingAvailabilityActivity extends AppCompatActivity {
     public static final int RESULT_LOAD_IMG=1;
     EditText aptType;
     EditText availability;
     EditText address;
-    EditText pincode;
+    EditText costET;
     EditText mobile;
     Bitmap selectedImage;
     ParseObject room;
@@ -44,7 +39,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         aptType=findViewById(R.id.aptTypeET);
         availability=findViewById(R.id.availabilityET);
         address=findViewById(R.id.addressET);
-        pincode=findViewById(R.id.pincodeET);
+        costET =findViewById(R.id.priceET);
         mobile=findViewById(R.id.mobileET);
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
@@ -107,7 +102,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         final String apt=aptType.getText().toString();
         final String avail=availability.getText().toString();
         final String addr=address.getText().toString();
-        final String pin=pincode.getText().toString();
+        final String cost= costET.getText().toString();
         final String mobl=mobile.getText().toString();
         if(apt.length()==0){
             aptType.requestFocus();
@@ -132,13 +127,13 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
             address.requestFocus();
             address.setError("Address length is too long: Max 50 Chars");
         }
-        else if(pin.length()==0){
-            pincode.requestFocus();
-            pincode.setError("PinCode Field is empty");
+        else if(cost.length()==0){
+            costET.requestFocus();
+            costET.setError("PinCode Field is empty");
         }
-        else if(pin.length()>7){
-            pincode.requestFocus();
-            pincode.setError("PinCode length is too long: Max 6 Chars");
+        else if(cost.length()>7){
+            costET.requestFocus();
+            costET.setError("PinCode length is too long: Max 6 Chars");
         }
         else if(mobl.length()==0){
             mobile.requestFocus();
@@ -162,7 +157,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         room.put("AptType",apt);
         room.put("Availability",avail);
         room.put("Address",addr);
-        room.put("Pincode",pin);
+        room.put("Cost",cost);
         room.put("MobileOrEmail",mobl);
         room.put("objectid",MainActivity.object_id);
 //        Bitmap imageBitmap = selectedImage;

@@ -147,11 +147,7 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
             {
                 newList.add(item);
             }
-            else if(item.getText2().toLowerCase().contains(userInput)){
-                newList.add(item);
-            }
-            else
-            {}
+
         }
         adapter = new ItemAdapter(newList,RoomsListView.this);
         mRecyclerView.setLayoutManager(mLayoutManager);
