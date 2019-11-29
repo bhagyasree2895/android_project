@@ -11,9 +11,7 @@ import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.inputmethod.EditorInfo;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import com.parse.FindCallback;
 import com.parse.Parse;
@@ -21,8 +19,6 @@ import com.parse.ParseException;
 import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +31,8 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
     private GestureDetector mDetector;
     public String name;
     private List<ParseObject> lastResult=new ArrayList<ParseObject>();
+    public int reqcode=0;
+    public ParseQuery<ParseObject> query;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +47,7 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
         );
         setContentView(R.layout.activity_rooms_list_view);
         roomList = new ArrayList<>();
-        ParseQuery<ParseObject> query= ParseQuery.getQuery("Room");
+         query= ParseQuery.getQuery("Room");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
@@ -83,10 +81,55 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
         // Handle item selection
         if(item.getItemId()==R.id.filter){
             Intent toOtherIntent = new Intent(this, filterActivity.class);
-            startActivity(toOtherIntent);
+            this.startActivityForResult(toOtherIntent,reqcode);
+
+           // Intent newIntent=getIntent();
+//            int Availability=newIntent.getIntExtra("availability",1);
+//            int costRange=newIntent.getIntExtra("costValue",100);
+//            String gender=newIntent.getStringExtra("genderPreference");
+//            ArrayList<RoomItem> newList=new ArrayList<>();
+//            if(gender.equals("Male")){
+
+
+
         }
       return true;
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == reqcode && resultCode == 10) {
+            final int filteravailability = data.getIntExtra("availability", 1);
+            int costRange = data.getIntExtra("costValue", 100);
+            String gender = data.getStringExtra("genderPreference");
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Room");
+            query.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+                    lastResult = objects;
+
+                    for (ParseObject po : objects) {
+                        int dataAvaialability = po.getInt("Availability");
+
+                        if (dataAvaialability >= filteravailability) {
+                            roomList.add(new RoomItem(R.drawable.roomingone, name, "250$"));
+                            mRecyclerView = findViewById(R.id.recyclerView);
+                            mRecyclerView.setHasFixedSize(true);
+                            mLayoutManager = new LinearLayoutManager(RoomsListView.this);
+                            adapter = new ItemAdapter(roomList, RoomsListView.this);
+                            mRecyclerView.setLayoutManager(mLayoutManager);
+                            mRecyclerView.setAdapter(adapter);
+                            Log.d("check", String.valueOf(dataAvaialability));
+                        }
+
+                    }
+                }
+            });
+        }
+
+    }
+
 
     @Override
     public boolean onQueryTextSubmit(String s) {
@@ -97,6 +140,7 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
     public boolean onQueryTextChange(String query) {
         String userInput=query.toLowerCase();
         ArrayList<RoomItem> newList=new ArrayList<>();
+
         for(RoomItem item : roomList)
         {
             if(item.getText1().toLowerCase().contains(userInput))

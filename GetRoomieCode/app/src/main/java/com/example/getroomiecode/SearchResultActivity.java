@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
 public class SearchResultActivity extends AppCompatActivity {
 
@@ -36,7 +35,7 @@ public class SearchResultActivity extends AppCompatActivity {
 
     public void gotoRoom1(View v) {
         try {
-            Intent toOtherIntent = new Intent(this, Room1DetailsActivity.class);
+            Intent toOtherIntent = new Intent(this, RoomCompleteDetailsActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {

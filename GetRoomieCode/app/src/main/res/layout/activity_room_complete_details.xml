@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CA175A"
-    tools:context=".Room1DetailsActivity">
+    tools:context=".RoomCompleteDetailsActivity">
 
     <Button
         android:id="@+id/button5"
@@ -180,8 +180,8 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="329dp"
-        android:layout_height="38dp"
+        android:layout_width="348dp"
+        android:layout_height="37dp"
         android:text="Maryville"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -189,25 +189,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="329dp"
-        android:layout_height="38dp"
-        android:text="1115N college Drive, Apt-7"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.392" />
+        app:layout_constraintVertical_bias="0.384" />
 
     <TextView
         android:id="@+id/projectnameTV4"

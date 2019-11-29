@@ -24,7 +24,7 @@ public class SearchResultsImagesActivity extends AppCompatActivity {
     }
     public void gotoRoomDetails(View v) {
         try {
-            Intent toOtherIntent = new Intent(this,Room1DetailsActivity.class);
+            Intent toOtherIntent = new Intent(this, RoomCompleteDetailsActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
