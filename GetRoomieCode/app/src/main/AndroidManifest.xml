@@ -52,12 +52,13 @@
             sign the APK for publishing.
             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBydfr8tMoopaNoKqzBdA71pqbC7nx6rng" />
         <meta-data
             android:name="com.parse.SERVER_URL"
-            android:value="https://parseapi.back4app.com" />
+            android:value="https://parseapi.back4app.com/" />
         <meta-data
             android:name="com.parse.APPLICATION_ID"
             android:value="Jp85UdwrCFJOrNJjij4ckORMgDkkq1sP8y0qGLAi" />

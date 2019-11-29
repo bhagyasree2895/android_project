@@ -36,6 +36,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public ItemAdapter(ArrayList<RoomItem> roomList, Context context){
         this.roomList=roomList;
         this.context=context;
+
+
     }
 
 
@@ -45,6 +47,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         public TextView mTextView1;
         public TextView mTextView2;
         public LinearLayout lt;
+
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -79,20 +82,20 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.mTextView1.setText(currentItem.getText1());
         //address=currentItem.getText1();
         holder.mTextView2.setText(currentItem.getText2());
-
-        Parse.initialize(context);
-        ParseInstallation.getCurrentInstallation().saveInBackground();
-        Parse.initialize(new Parse.Configuration.Builder(context)
-                .applicationId("Jp85UdwrCFJOrNJjij4ckORMgDkkq1sP8y0qGLAi")
-                // if defined
-                .clientKey("ycpRFcKrphpieDNnLkk8lhij76iX8L5zmWiyzj8l")
-                .server("https://parseapi.back4app.com/")
-                .build()
-        );
-
         holder.lt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("context", String.valueOf(context));
+                Parse.initialize(context);
+                ParseInstallation.getCurrentInstallation().saveInBackground();
+                Parse.initialize(new Parse.Configuration.Builder(context)
+                        .applicationId("Jp85UdwrCFJOrNJjij4ckORMgDkkq1sP8y0qGLAi")
+                        // if defined
+                        .clientKey("ycpRFcKrphpieDNnLkk8lhij76iX8L5zmWiyzj8l")
+                        .server("https://parseapi.back4app.com/")
+                        .build()
+                );
+
                 RoomItem selectedItem=roomList.get(holder.getAdapterPosition());
                 address=selectedItem.getText1();
                 ParseQuery<ParseObject> query= ParseQuery.getQuery("Room");
@@ -104,8 +107,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                         for(ParseObject po:objects){
 
                     if(po.getString("Address").equals(address)){
-                        Log.d("objAddress",po.getString("Address"));
-                        Log.d("checkAddress",address);
                         aptType=po.getString("AptType");
                         availability=po.getString("Availability");
                         String aptAddress=po.getString("Address");
