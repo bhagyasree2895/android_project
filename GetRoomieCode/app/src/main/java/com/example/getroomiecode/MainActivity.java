@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     EditText username;
     EditText pass;
     public static String object_id = null;
+    public static String tenantName=null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                             if (parseUser != null) {
                                 dlg.dismiss();
                                 Toast.makeText(MainActivity.this, "Sucessful Login", Toast.LENGTH_LONG).show();
+                                tenantName=parseUser.getString("Fullname");
                                 object_id = parseUser.getObjectId();
                                  try {
                                     Intent toOtherIntent = new Intent(getApplicationContext(), SignInActivity.class);

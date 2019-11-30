@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 public class ContactActivity extends AppCompatActivity {
 
@@ -12,6 +13,12 @@ public class ContactActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
+        TextView userName=findViewById(R.id.textView19);
+        TextView userNum=findViewById(R.id.textView20);
+        Intent intent=getIntent();
+        //intent.getStringExtra("userName");
+       userName.setText(intent.getStringExtra("userName"));
+        userNum.setText(intent.getStringExtra("userNum"));
     }
     public void gotosignoutAction(View v) {
         try {
@@ -32,15 +39,5 @@ public class ContactActivity extends AppCompatActivity {
         }
     }
 
-
-    public void gotoRoomDetails(View v) {
-        try {
-            Intent toOtherIntent = new Intent(this, RoomCompleteDetailsActivity.class);
-            startActivity(toOtherIntent);
-
-        } catch (Exception e) {
-
-        }
-    }
 
 }

@@ -108,10 +108,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                         aptType=po.getString("AptType");
                         availability=po.getString("Availability");
                         String aptAddress=po.getString("Address");
+                        String cost=po.getString("Cost");
                         Intent in=new Intent(context, RoomCompleteDetailsActivity.class);
                         in.putExtra("aptType",aptType);
                         in.putExtra("availability",availability);
                         in.putExtra("aptAddress",aptAddress);
+                        in.putExtra("Cost",cost);
                         context.startActivity(in);
 
                     }

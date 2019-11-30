@@ -135,16 +135,12 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
             costET.requestFocus();
             costET.setError("PinCode length is too long: Max 6 Chars");
         }
-        else if(mobl.length()==0){
+        else if (mobl.length() == 0 || mobl.length() < 10) {
             mobile.requestFocus();
-            mobile.setError("Mobile Field is empty");
+            mobile.setError("Mobile Field is Empty/ too short");
         }
         else if (!Pattern.matches("[0-9]+",mobl)){
             mobile.setError("Mobile Field should contain only numerical values");
-        }
-        else if(mobl.length()!=10){
-            mobile.requestFocus();
-            mobile.setError("Mobile Number length must be 10");
         }
         else {
             try {
@@ -158,8 +154,9 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         room.put("Availability",avail);
         room.put("Address",addr);
         room.put("Cost",cost);
-        room.put("MobileOrEmail",mobl);
-        room.put("objectid",MainActivity.object_id);
+        room.put("Mobile",mobl);
+        room.put("Tenant",MainActivity.tenantName);
+
 //        Bitmap imageBitmap = selectedImage;
 ////        // Locate the image in res >
 ////

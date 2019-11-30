@@ -8,21 +8,6 @@
     tools:context=".ContactActivity">
 
     <Button
-        android:id="@+id/button8"
-        android:layout_width="98dp"
-        android:layout_height="82dp"
-        android:background="#000000"
-        android:onClick="gotoRoomDetails"
-        android:text="Back"
-        android:textColor="#CA175A"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.83"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.773" />
-
-    <Button
         android:id="@+id/signOutBTN4"
         android:layout_width="107dp"
         android:layout_height="49dp"
@@ -47,10 +32,10 @@
         android:textColor="#CA175A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.77" />
+        app:layout_constraintVertical_bias="0.756" />
 
     <ImageView
         android:id="@+id/imageView10"
@@ -66,34 +51,19 @@
         app:srcCompat="@drawable/icon" />
 
     <TextView
-        android:id="@+id/textView21"
-        android:layout_width="205dp"
-        android:layout_height="54dp"
-        android:text="leelakrishna@gmail.com"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.599" />
-
-    <TextView
         android:id="@+id/textView20"
-        android:layout_width="205dp"
-        android:layout_height="54dp"
+        android:layout_width="142dp"
+        android:layout_height="41dp"
         android:text="+16605263783"
         android:textColor="#000000"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.383"
+        app:layout_constraintHorizontal_bias="0.643"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.472" />
+        app:layout_constraintVertical_bias="0.479" />
 
     <TextView
         android:id="@+id/projectnameTV6"
@@ -126,6 +96,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.36" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="74dp"
+        android:layout_height="32dp"
+        android:text="Mobile:"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.234"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.473" />
 
     <TextView
         android:id="@+id/textView19"
