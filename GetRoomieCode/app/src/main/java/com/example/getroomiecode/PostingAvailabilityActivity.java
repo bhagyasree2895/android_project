@@ -1,29 +1,26 @@
 package com.example.getroomiecode;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.util.Base64;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.SaveCallback;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.regex.Pattern;
 
 public class PostingAvailabilityActivity extends AppCompatActivity {
@@ -35,8 +32,6 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
     EditText mobile;
     Bitmap selectedImage;
     ParseObject room;
-    ImageView imageView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,14 +41,6 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         address=findViewById(R.id.addressET);
         costET =findViewById(R.id.priceET);
         mobile=findViewById(R.id.mobileET);
-        imageView=findViewById(R.id.imageView11);
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                selectImage(PostingAvailabilityActivity.this);
-            }
-        });
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
                 // if defined
@@ -62,127 +49,61 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
                 .build()
         );
     }
-    private void selectImage(Context context) {
-        final CharSequence[] options = {"Take Photo", "Choose from Gallery", "Cancel"};
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Choose your room picture");
-
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-
-                if (options[item].equals("Take Photo")) {
-                    Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(takePicture, 0);
-
-                } else if (options[item].equals("Choose from Gallery")) {
-                    Intent pickPhoto = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(pickPhoto, 1);//one can be replaced with any action code
-
-                } else if (options[item].equals("Cancel")) {
-                    dialog.dismiss();
-                }
-            }
-        });
-        builder.show();
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode != RESULT_CANCELED) {
-            switch (requestCode) {
-                case 0:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
-                        imageView.setImageBitmap(selectedImage);
-                    }
-
-                    break;
-                case 1:
-                    if (resultCode == RESULT_OK && data != null) {
-                        Uri selectedImage = data.getData();
-                        if (selectedImage != null) {
-                            try {
-                                Bitmap image = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-                                imageView.setImageBitmap(image);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-                    break;
-            }
-        }
-    }
-    public String getEncoded64ImageStringFromBitmap(Bitmap bitmap) {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
-        byte[] byteFormat = stream.toByteArray();
-        // get the base 64 string
-        String imgString = Base64.encodeToString(byteFormat, Base64.NO_WRAP);
-        return imgString;
-    }
-
     public void gotohomePage(View v) {
         try {
-            Intent toOtherIntent = new Intent(this, HomeActivity.class);
+            Intent toOtherIntent = new Intent(this,SignInActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
 
         }
     }
+    public void gotouploadimage(View v) {
+        try {
+            //Intent toOtherIntent = new Intent(this,UploadImageActivity.class);
+            //startActivity(toOtherIntent);
+            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+            photoPickerIntent.setType("image/*");
+            startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
 
-//    public void gotouploadimage(View v) {
-//        try {
-//            //Intent toOtherIntent = new Intent(this,UploadImageActivity.class);
-//            //startActivity(toOtherIntent);
-//            Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
-//            photoPickerIntent.setType("image/*");
-//            startActivityForResult(photoPickerIntent, RESULT_LOAD_IMG);
-//
-//        } catch (Exception e) {
-//
-//        }
-//
-//    }
-//    @Override
-//    protected void onActivityResult(int reqCode, int resultCode, Intent data) {
-//        super.onActivityResult(reqCode, resultCode, data);
-//
-//        ImageView imageView11=findViewById(R.id.imageView11);
-//
-//        String picturePath = PreferenceManager.getDefaultSharedPreferences(this).getString("picturePath", "");
-//        if (!picturePath.equals("")) {
-//            ImageView imageView = (ImageView) findViewById(R.id.imageView11);
-//            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-//        }
-//
-//        if (resultCode == RESULT_OK) {
-//            try {
-//                final Uri imageUri = data.getData();
-//                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
-//                selectedImage= BitmapFactory.decodeStream(imageStream);
-//                imageView11.setImageBitmap(selectedImage);
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//                Toast.makeText(PostingAvailabilityActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
-//            }
-//
-//        }else {
-//            Toast.makeText(PostingAvailabilityActivity.this, "You haven't picked Image",Toast.LENGTH_LONG).show();
-//        }
-//    }
+        } catch (Exception e) {
+
+        }
+
+    }
+    @Override
+    protected void onActivityResult(int reqCode, int resultCode, Intent data) {
+        super.onActivityResult(reqCode, resultCode, data);
+
+        ImageView imageView11=findViewById(R.id.imageView11);
+
+        String picturePath = PreferenceManager.getDefaultSharedPreferences(this).getString("picturePath", "");
+        if (!picturePath.equals("")) {
+            ImageView imageView = (ImageView) findViewById(R.id.imageView11);
+            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+        }
+
+        if (resultCode == RESULT_OK) {
+            try {
+                final Uri imageUri = data.getData();
+                final InputStream imageStream = getContentResolver().openInputStream(imageUri);
+                selectedImage= BitmapFactory.decodeStream(imageStream);
+                imageView11.setImageBitmap(selectedImage);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                Toast.makeText(PostingAvailabilityActivity.this, "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+
+        }else {
+            Toast.makeText(PostingAvailabilityActivity.this, "You haven't picked Image",Toast.LENGTH_LONG).show();
+        }
+    }
     public void onSubmit(View v) {
         final String apt=aptType.getText().toString();
         final String avail=availability.getText().toString();
         final String addr=address.getText().toString();
         final String cost= costET.getText().toString();
         final String mobl=mobile.getText().toString();
-        Bitmap bimage = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
-        final String image=getEncoded64ImageStringFromBitmap(bimage);
         if(apt.length()==0){
             aptType.requestFocus();
             aptType.setError("AptType field cannot be empty!!");
@@ -236,7 +157,6 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         room.put("Mobile",mobl);
         room.put("Tenant",MainActivity.tenantName);
         room.put("genderPreference",MainActivity.genderPreference);
-        room.put("image",image);
 
 //        Bitmap imageBitmap = selectedImage;
 ////        // Locate the image in res >

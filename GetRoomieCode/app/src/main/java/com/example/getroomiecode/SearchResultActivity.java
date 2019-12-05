@@ -25,7 +25,7 @@ public class SearchResultActivity extends AppCompatActivity {
     }
     public void gotohomePage(View v) {
         try {
-            Intent toOtherIntent = new Intent(this, HomeActivity.class);
+            Intent toOtherIntent = new Intent(this, SignInActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {

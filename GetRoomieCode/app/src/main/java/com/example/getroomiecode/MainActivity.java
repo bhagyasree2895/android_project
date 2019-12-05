@@ -8,19 +8,27 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.ParseInstallation;
+
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -82,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                                 genderPreference=parseUser.getString("Gender");
                                 object_id = parseUser.getObjectId();
                                  try {
-                                    Intent toOtherIntent = new Intent(getApplicationContext(), HomeActivity.class);
+                                    Intent toOtherIntent = new Intent(getApplicationContext(), SignInActivity.class);
                                     startActivity(toOtherIntent);
                                 } catch (Exception e1) {
                                 }
@@ -132,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                         //username= username.getText().toString();
-                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                        Intent intent = new Intent(MainActivity.this, SignInActivity.class);
                         intent.putExtra("email", username.getText().toString());
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
