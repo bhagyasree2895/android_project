@@ -5,7 +5,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.Menu;
@@ -31,11 +34,14 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
     private GestureDetector mDetector;
     public String name;
     public String cost;
+    public int roomImage;
     private List<ParseObject> lastResult=new ArrayList<ParseObject>();
     public int reqcode=5;
     public ParseQuery<ParseObject> query;
     public String filteravailability;
     public String costRange, gender, location;
+    public String image;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +68,11 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
                     if(po.getString("Address").toLowerCase().contains(location.toLowerCase())){
                         name=po.getString("Address");
                         cost=po.getString("Cost");
-                        roomList.add(new RoomItem(R.drawable.roomingone, name, cost+"$"));
+                        image=po.getString("image");
+//                        byte[] decodedString = Base64.decode(image.getBytes(), Base64.DEFAULT);
+//                        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+//                        roomImage.setImageBitmap(decodedByte);
+//                        roomList.add(new RoomItem(R.drawable.roomingone, name, cost+"$"));
                     }
                     else if(location.equals("null")){
                         name=po.getString("Address");
