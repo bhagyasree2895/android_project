@@ -7,21 +7,6 @@
     android:background="#CA175A"
     tools:context=".SearchResultsImagesActivity">
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:onClick="gotoRoomDetails"
-        android:text="Back"
-        android:textColor="#CA175A"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.368" />
-
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="154dp"
@@ -41,22 +26,22 @@
         android:layout_height="149dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.609"
+        app:layout_constraintVertical_bias="0.479"
         app:srcCompat="@drawable/roomingone" />
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="295dp"
-        android:layout_height="131dp"
+        android:layout_width="299dp"
+        android:layout_height="133dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
+        app:layout_constraintHorizontal_bias="0.546"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.891"
+        app:layout_constraintVertical_bias="0.812"
         app:srcCompat="@drawable/roomingtwo" />
 
     <TextView
@@ -75,19 +60,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.149" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="249dp"
-        android:layout_height="63dp"
-        android:text="1115N college Drive, Apt-7"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.802"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.353" />
 </androidx.constraintlayout.widget.ConstraintLayout>

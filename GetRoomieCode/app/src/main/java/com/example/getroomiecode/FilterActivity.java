@@ -12,11 +12,11 @@ import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class filterActivity extends AppCompatActivity {
+public class FilterActivity extends AppCompatActivity {
     public int costValue;
-    String genderStr;
-    RadioGroup gender;
-    RadioButton radioButtonGender;
+    public String genderStrFilter;
+    public RadioGroup gender;
+    public RadioButton radioButtonGenderFilter;
     public int rescode=10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,22 +46,27 @@ public class filterActivity extends AppCompatActivity {
     }
     public void onApply(View v){
         EditText availabilityET=findViewById(R.id.availabilityFilterET);
-        int availability=Integer.parseInt(String.valueOf(availabilityET.getText()));
-
-        RadioGroup gender =  findViewById(R.id.RadioGender);
-
-        gender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                radioButtonGender = findViewById(checkedId);
-                genderStr = radioButtonGender.getText().toString();
-            }
-        });
-        Intent intent=new Intent(this,RoomsListView.class);
+        String availability=String.valueOf(availabilityET.getText());
+        if(availability.equals("")){
+            availability="0";
+        }
+        TextView costValueTV=findViewById(R.id.seekbarTV);
+        String costValueStr=String.valueOf(costValue);
+        try {
+            gender = findViewById(R.id.RadioGenderFilter);
+            int selectedId = gender.getCheckedRadioButtonId();
+            // find the radiobutton by returned id
+            radioButtonGenderFilter = (RadioButton) findViewById(selectedId);
+            genderStrFilter = radioButtonGenderFilter.getText().toString();
+        }
+        catch(Exception e){
+            genderStrFilter="null";
+        }
+        Log.d("check","check" +genderStrFilter+"cost "+costValueStr+"availabilty "+availability);
+        Intent intent = new Intent(this, RoomsListView.class);
         intent.putExtra("availability",availability);
-        Log.d("availability", String.valueOf(availability));
-        intent.putExtra("costValue",costValue);
-        intent.putExtra("genderPreference",genderStr);
+        intent.putExtra("costValue",costValueStr);
+        intent.putExtra("genderPreference",genderStrFilter);
         setResult(rescode,intent);
         finish();
 

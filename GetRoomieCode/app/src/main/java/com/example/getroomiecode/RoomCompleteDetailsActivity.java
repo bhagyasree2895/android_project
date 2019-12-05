@@ -37,7 +37,7 @@ public class RoomCompleteDetailsActivity extends AppCompatActivity {
         aptTypeTV.setText(intent.getStringExtra("aptType"));
         availability.setText(intent.getStringExtra("availability"));
         aptAddress.setText(intent.getStringExtra("aptAddress"));
-        cost.setText(intent.getStringExtra("Cost"));
+        cost.setText(intent.getStringExtra("Cost")+"$");
         Parse.initialize(this);
         ParseInstallation.getCurrentInstallation().saveInBackground();
         Parse.initialize(new Parse.Configuration.Builder(this)

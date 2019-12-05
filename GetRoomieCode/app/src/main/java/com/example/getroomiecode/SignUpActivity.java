@@ -32,7 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
     EditText username;
     EditText pass;
     EditText confirmPass;
-    RadioGroup gender;
+    //RadioGroup gender;
     RadioButton radioButtonGender;
     Button signUp;
     String genderStr;

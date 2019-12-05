@@ -156,6 +156,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         room.put("Cost",cost);
         room.put("Mobile",mobl);
         room.put("Tenant",MainActivity.tenantName);
+        room.put("genderPreference",MainActivity.genderPreference);
 
 //        Bitmap imageBitmap = selectedImage;
 ////        // Locate the image in res >
