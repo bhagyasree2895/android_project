@@ -38,15 +38,6 @@ public class ContactActivity extends AppCompatActivity {
 
         }
     }
-    public void chatAction(View v){
-        try{
-            Intent toOtherIntent = new Intent(this, ChatActivity.class);
-            startActivity(toOtherIntent);
-
-        } catch (Exception e) {
-
-        }
-    }
 
 
 }

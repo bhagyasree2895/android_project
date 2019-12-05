@@ -25,12 +25,7 @@
         <activity android:name=".SubmitActivity" />
         <activity android:name=".UploadImageActivity" />
         <activity android:name=".PostingAvailabilityActivity" />
-<<<<<<< HEAD
         <activity android:name=".HomeActivity" />
-=======
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".ChatActivity"/>
->>>>>>> 1b1a7c7f21ec05514c0e980e550cc3270a926ce4
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
