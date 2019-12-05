@@ -44,7 +44,7 @@ public class MapsActivity extends FragmentActivity
 
     private GoogleMap mMap;
     ArrayList<Double> loc=new ArrayList<Double>();
-    String finalLoc="";
+    String finalLoc="", state="null";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -218,6 +218,7 @@ public class MapsActivity extends FragmentActivity
                     finalLoc=addresses.get(0).getFeatureName() + ", " +
                             addresses.get(0).getLocality() +", " + addresses.get(0).getAdminArea() + ", " +
                             addresses.get(0).getCountryName();
+                    state=addresses.get(0).getAdminArea();
                     locNametextview.setText(addresses.get(0).getFeatureName() + ", " +
                             addresses.get(0).getLocality() +", " + addresses.get(0).getAdminArea() + ", " +
                             addresses.get(0).getCountryName());
@@ -290,7 +291,7 @@ public class MapsActivity extends FragmentActivity
     }
     public void backToRoomActivity(View v){
         Intent in = new Intent();
-        in.putExtra("LocationName",finalLoc);
+        in.putExtra("LocationName",state);
         setResult(11,in);
         finish();
     }

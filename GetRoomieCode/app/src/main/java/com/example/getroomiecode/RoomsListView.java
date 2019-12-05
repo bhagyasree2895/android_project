@@ -35,7 +35,7 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
     public int reqcode=5;
     public ParseQuery<ParseObject> query;
     public String filteravailability;
-    public String costRange, gender;
+    public String costRange, gender, location;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +49,8 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
                 .build()
         );
         setContentView(R.layout.activity_rooms_list_view);
-
+        Intent locationIntent=getIntent();
+        location=locationIntent.getStringExtra("location");
          query= ParseQuery.getQuery("Room");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
@@ -57,9 +58,18 @@ public class RoomsListView extends AppCompatActivity implements SearchView.OnQue
                 lastResult = objects;
                 roomList = new ArrayList<>();
                 for(ParseObject po:objects){
-                    name=po.getString("Address");
-                    cost=po.getString("Cost");
-                    roomList.add(new RoomItem(R.drawable.roomingone, name, cost+"$"));
+
+                    if(po.getString("Address").toLowerCase().contains(location.toLowerCase())){
+                        name=po.getString("Address");
+                        cost=po.getString("Cost");
+                        roomList.add(new RoomItem(R.drawable.roomingone, name, cost+"$"));
+                    }
+                    else if(location.equals("null")){
+                        name=po.getString("Address");
+                        cost=po.getString("Cost");
+                        roomList.add(new RoomItem(R.drawable.roomingone, name, cost+"$"));
+                    }
+
                     mRecyclerView = findViewById(R.id.recyclerView);
                     mRecyclerView.setHasFixedSize(true);
                     mLayoutManager = new LinearLayoutManager(RoomsListView.this);

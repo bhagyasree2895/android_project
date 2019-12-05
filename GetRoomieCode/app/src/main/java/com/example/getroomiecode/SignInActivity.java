@@ -21,7 +21,7 @@ public class SignInActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager mLayoutManager;
-
+    private String location="null";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +37,9 @@ public class SignInActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, roomInt);
         if (requestCode == 11) {
             if (resultCode == 11) {
-                String str = roomInt.getStringExtra("LocationName");
+                location = roomInt.getStringExtra("LocationName");
                 TextView incidentLocTV = findViewById(R.id.locationTV);
-                incidentLocTV.setText(str);
+                incidentLocTV.setText(location);
             }
         }
     }
@@ -47,6 +47,7 @@ public class SignInActivity extends AppCompatActivity {
     public void gotoSearchRoom(View v) {
         try {
             Intent toOtherIntent = new Intent(this,RoomsListView.class);
+            toOtherIntent.putExtra("location",location);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
