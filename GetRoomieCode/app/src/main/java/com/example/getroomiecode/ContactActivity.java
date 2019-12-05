@@ -31,7 +31,7 @@ public class ContactActivity extends AppCompatActivity {
     }
     public void gotoHomePageAction(View v) {
         try {
-            Intent toOtherIntent = new Intent(this, SignInActivity.class);
+            Intent toOtherIntent = new Intent(this, HomeActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
