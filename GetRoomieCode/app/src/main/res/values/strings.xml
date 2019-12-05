@@ -5,4 +5,19 @@
     <string name="back4app_app_id">Jp85UdwrCFJOrNJjij4ckORMgDkkq1sP8y0qGLAi</string>
     <string name="back4app_client_key">ycpRFcKrphpieDNnLkk8lhij76iX8L5zmWiyzj8l</string>
     <string name="title_activity_maps">Map</string>
+
+    <!-- Strings for activity ChatActivity -->
+    <string name="aC_message_hint">Type a message…</string>
+    <string name="aC_btn_send">Send</string>
+
+    <!-- Strings for layout ItemChat -->
+    <string name="iC_profile_me">My Profile Pic</string>
+    <string name="iC_profile_other">Other profile pic</string>
+
+    <!-- String for our Toasts -->
+    <string name="toast_saved_message_ok">Successfully created message on Parse</string>
+    <string name="toast_saved_message_err">Failed to save message</string>
+    <string name="toast_load_messages_err">Error loading messages</string>
+    <string name="toast_anonymous_login_err">Anonymous login failed: </string>
+    <string name="title_activity_message_board">MessageBoardActivity</string>
 </resources>

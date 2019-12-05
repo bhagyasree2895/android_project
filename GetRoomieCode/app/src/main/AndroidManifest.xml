@@ -26,6 +26,7 @@
         <activity android:name=".UploadImageActivity" />
         <activity android:name=".PostingAvailabilityActivity" />
         <activity android:name=".SignInActivity" />
+        <activity android:name=".ChatActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
