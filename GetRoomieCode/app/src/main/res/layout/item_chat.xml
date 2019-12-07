@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:layout_marginTop="10dp">
-
     <ImageView
         android:id="@+id/ivProfileOther"
+        android:contentDescription="@string/iC_profile_other"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:contentDescription="@string/iC_profile_other"
-        app:srcCompat="@drawable/common_google_signin_btn_icon_dark_normal" />
+        android:src="@mipmap/ic_launcher" />
     <TextView
         android:textSize="18sp"
         android:id="@+id/tvBody"
@@ -24,11 +22,10 @@
         android:layout_weight="1"
         android:layout_marginRight="64dp"><!-- This line is added to support marginEnd on devices with API less than 17 -->
     </TextView>
-
     <ImageView
         android:id="@+id/ivProfileMe"
+        android:contentDescription="@string/iC_profile_me"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:contentDescription="@string/iC_profile_me"
-        app:srcCompat="@drawable/plus" />
+        android:src="@mipmap/ic_launcher" />
 </LinearLayout>

@@ -6,29 +6,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.parse.GetCallback;
 import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.ParseInstallation;
-
-import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,8 +35,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         username=findViewById(R.id.usernameET);
         pass=findViewById(R.id.passwordET);
+<<<<<<< HEAD
         //TextView frgtPwd=findViewById(R.id.frgtPwdTV);
        // frgtPwd.setPaintFlags(frgtPwd.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+=======
+>>>>>>> b541fb6bcc0f39168801d9eb2f75d9afde3d3f9f
         Parse.initialize(this);
         ParseInstallation.getCurrentInstallation().saveInBackground();
         Parse.initialize(new Parse.Configuration.Builder(this)
@@ -90,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                                 genderPreference=parseUser.getString("Gender");
                                 object_id = parseUser.getObjectId();
                                  try {
-                                    Intent toOtherIntent = new Intent(getApplicationContext(), SignInActivity.class);
+                                    Intent toOtherIntent = new Intent(getApplicationContext(), HomeActivity.class);
                                     startActivity(toOtherIntent);
                                 } catch (Exception e1) {
                                 }
@@ -140,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
                         //username= username.getText().toString();
-                        Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+                        Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                         intent.putExtra("email", username.getText().toString());
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);

@@ -1,22 +1,21 @@
 package com.example.getroomiecode;
 
-import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.LogInCallback;
-import com.parse.Parse;
 import com.parse.ParseAnonymousUtils;
 import com.parse.ParseException;
-import com.parse.ParseInstallation;
 import com.parse.ParseLiveQueryClient;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
@@ -24,10 +23,6 @@ import com.parse.SubscriptionHandling;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class ChatActivity extends AppCompatActivity {
 
@@ -55,16 +50,6 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        ParseObject.registerSubclass(Message.class);
-        Parse.initialize(this);
-        ParseInstallation.getCurrentInstallation().saveInBackground();
-        Parse.initialize(new Parse.Configuration.Builder(this)
-                .applicationId(getString(R.string.back4app_app_id))
-                // if defined
-                .clientKey(getString(R.string.back4app_client_key))
-                .server(getString(R.string.back4app_server_url))
-                .build()
-        );
         // Make sure the Parse server is setup to configured for live queries
         // URL for server is determined by Parse.initialize() call.
         ParseLiveQueryClient parseLiveQueryClient = ParseLiveQueryClient.Factory.getClient();
@@ -72,12 +57,7 @@ public class ChatActivity extends AppCompatActivity {
         ParseQuery<Message> parseQuery = ParseQuery.getQuery(Message.class);
         // This query can even be more granular (i.e. only refresh if the entry was added by some other user
         // aur7YEyjXZ
-        //TextView userName=findViewById(R.id.textView19);
-        //TextView userNum=findViewById(R.id.textView20);
-        //Intent intent=getIntent();
-        //userName.setText(intent.getStringExtra("userName"));
-       // userNum.setText(intent.getStringExtra("userNum"));
-        parseQuery.whereNotEqualTo(USER_ID_KEY, ParseUser.getCurrentUser().getObjectId());
+        parseQuery.whereNotEqualTo(USER_ID_KEY, "D2IYs6m20w");
         //parseQuery.whereNotEqualTo(USER_ID_KEY, ParseUser.getCurrentUser().getObjectId());
 
         // Connect to Parse server
@@ -154,7 +134,6 @@ public class ChatActivity extends AppCompatActivity {
                 // And we assign the user id we are using (right now it is an anonymous one, later maybe it will be a registered user)
                 message.setUserId(ParseUser.getCurrentUser().getObjectId());
 
-
                 // Now we save the message (sending it to server if it is possible!)
                 message.saveInBackground(new SaveCallback() {
                     @Override
@@ -205,10 +184,7 @@ public class ChatActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), getString(R.string.toast_load_messages_err), Toast.LENGTH_SHORT).show();
                     }
                     for (int i=0;i<rvMessages.size();i++){
-                        if(rvMessages.get(i).getBody()!=null){
-                            System.out.println(rvMessages.get(i).getBody().toString());
-                        }
-
+                        System.out.println(rvMessages.get(i).getBody().toString());
                     }
                 }
             }

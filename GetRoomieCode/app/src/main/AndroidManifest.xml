@@ -2,11 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.getroomiecode">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/appicon"
@@ -14,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
+        <activity android:name=".ChatActivity"></activity>
+        <activity android:name=".filterActivity" />
+=======
         <activity android:name=".FilterActivity"></activity>
+>>>>>>> 8daf08c698ac806dcc00794d314c028662bf3b38
         <activity android:name=".RoomsListView" />
         <activity android:name=".ContactActivity" />
         <activity android:name=".SearchResultsImagesActivity" />
@@ -25,8 +25,7 @@
         <activity android:name=".SubmitActivity" />
         <activity android:name=".UploadImageActivity" />
         <activity android:name=".PostingAvailabilityActivity" />
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".ChatActivity"/>
+        <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,7 +52,6 @@
             sign the APK for publishing.
             You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBydfr8tMoopaNoKqzBdA71pqbC7nx6rng" />
@@ -67,5 +65,10 @@
             android:name="com.parse.CLIENT_KEY"
             android:value="ycpRFcKrphpieDNnLkk8lhij76iX8L5zmWiyzj8l" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 </manifest>

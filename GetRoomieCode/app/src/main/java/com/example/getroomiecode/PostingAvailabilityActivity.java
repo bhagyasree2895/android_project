@@ -51,7 +51,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
     }
     public void gotohomePage(View v) {
         try {
-            Intent toOtherIntent = new Intent(this,SignInActivity.class);
+            Intent toOtherIntent = new Intent(this, HomeActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
