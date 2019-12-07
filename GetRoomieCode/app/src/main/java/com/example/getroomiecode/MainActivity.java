@@ -45,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         username=findViewById(R.id.usernameET);
         pass=findViewById(R.id.passwordET);
-        TextView frgtPwd=findViewById(R.id.frgtPwdTV);
-        frgtPwd.setPaintFlags(frgtPwd.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        //TextView frgtPwd=findViewById(R.id.frgtPwdTV);
+       // frgtPwd.setPaintFlags(frgtPwd.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         Parse.initialize(this);
         ParseInstallation.getCurrentInstallation().saveInBackground();
         Parse.initialize(new Parse.Configuration.Builder(this)
