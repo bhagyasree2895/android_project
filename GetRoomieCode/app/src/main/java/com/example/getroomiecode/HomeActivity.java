@@ -1,31 +1,22 @@
 package com.example.getroomiecode;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.SearchView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
-public class SignInActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager mLayoutManager;
-
+    private String location="null";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        setContentView(R.layout.activity_home);
 
     }
     public void getLocationAction(View v) {
@@ -37,9 +28,9 @@ public class SignInActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, roomInt);
         if (requestCode == 11) {
             if (resultCode == 11) {
-                String str = roomInt.getStringExtra("LocationName");
+                location = roomInt.getStringExtra("LocationName");
                 TextView incidentLocTV = findViewById(R.id.locationTV);
-                incidentLocTV.setText(str);
+                incidentLocTV.setText(location);
             }
         }
     }
@@ -47,6 +38,7 @@ public class SignInActivity extends AppCompatActivity {
     public void gotoSearchRoom(View v) {
         try {
             Intent toOtherIntent = new Intent(this,RoomsListView.class);
+            toOtherIntent.putExtra("location",location);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {

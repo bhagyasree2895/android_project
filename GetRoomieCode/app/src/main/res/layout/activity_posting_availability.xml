@@ -71,7 +71,6 @@
         android:text="Mobile"
         android:textColor="#CA175A"
         android:textSize="28sp"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"

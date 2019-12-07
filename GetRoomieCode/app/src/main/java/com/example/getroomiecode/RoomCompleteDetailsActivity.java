@@ -1,11 +1,9 @@
 package com.example.getroomiecode;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -16,7 +14,6 @@ import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RoomCompleteDetailsActivity extends AppCompatActivity {
@@ -37,7 +34,7 @@ public class RoomCompleteDetailsActivity extends AppCompatActivity {
         aptTypeTV.setText(intent.getStringExtra("aptType"));
         availability.setText(intent.getStringExtra("availability"));
         aptAddress.setText(intent.getStringExtra("aptAddress"));
-        cost.setText(intent.getStringExtra("Cost"));
+        cost.setText(intent.getStringExtra("Cost")+"$");
         Parse.initialize(this);
         ParseInstallation.getCurrentInstallation().saveInBackground();
         Parse.initialize(new Parse.Configuration.Builder(this)
@@ -77,7 +74,7 @@ public class RoomCompleteDetailsActivity extends AppCompatActivity {
     }
     public void gotohomePage(View v) {
         try {
-            Intent toOtherIntent = new Intent(this,SignInActivity.class);
+            Intent toOtherIntent = new Intent(this, HomeActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {

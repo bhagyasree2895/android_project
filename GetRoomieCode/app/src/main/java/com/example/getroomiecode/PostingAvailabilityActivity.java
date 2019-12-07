@@ -51,7 +51,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
     }
     public void gotohomePage(View v) {
         try {
-            Intent toOtherIntent = new Intent(this,SignInActivity.class);
+            Intent toOtherIntent = new Intent(this, HomeActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
@@ -156,6 +156,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
         room.put("Cost",cost);
         room.put("Mobile",mobl);
         room.put("Tenant",MainActivity.tenantName);
+        room.put("genderPreference",MainActivity.genderPreference);
 
 //        Bitmap imageBitmap = selectedImage;
 ////        // Locate the image in res >
