@@ -32,7 +32,8 @@ Attached file is at GetRoomie/app-debug.apk
 
 ### Supported Devices:
 
-Any device with minimun Android Sdk version API21(5.0) our application works on that device.
+Any device with minimum Android Sdk version API21(5.0) our application works on that device.
+
 Requires Google Play Services for Accessing Current location through Android Studio.
 
 ### Sequence Information:
