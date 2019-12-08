@@ -39,4 +39,11 @@ Requires Google Play Services for Accessing Current location through Android Stu
  1. Registration
  2. Login
  3. Search Room
- 4. Post Room
+ 4. Get Location from GPS using Google play Services API and get back to the Main screen of Post Room and Find Room page.
+ 5. Advanced Search with well developed features to filter the Room by Cost preferences which can be done by using sliding bar for cost.
+ 6. Search filter based on geneder preferences whether Male/Female/Other.
+ 7. The user can also search based their availability of members in the room.
+ 8. Fetching Rooms data from the Back4App database and reflecting them in the Recycler view in an Organised chronological fashion.
+ 9. Posting Room is another sepearte feature for the user if they have any availability to any other person in their room.
+ 10. After searching for a room, if the user likes the room, they can also chat with the person who posted the availability and know more details about the room to move further.
+ 
