@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CA175A"
+    android:background="#F89FAA"
     tools:context=".ContactActivity">
 
     <Button
@@ -14,7 +14,7 @@
         android:background="#000000"
         android:onClick="gotosignoutAction"
         android:text="Signout"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
         android:background="#000000"
         android:onClick="chatAction"
         android:text="Chat"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.445"
@@ -70,7 +70,7 @@
         android:id="@+id/projectnameTV6"
         android:layout_width="186dp"
         android:layout_height="48dp"
-        android:background="#CA175A"
+        android:background="#F89FAA"
         android:text="GetRoomie"
         android:textAlignment="center"
         android:textColor="#000000"

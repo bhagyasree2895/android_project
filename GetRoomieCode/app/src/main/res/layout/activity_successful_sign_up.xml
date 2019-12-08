@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CA175A"
+    android:background="#F89FAA"
     tools:context=".SuccessfulSignUpActivity">
 
     <Button
@@ -14,7 +14,7 @@
         android:background="#000000"
         android:onClick="gotoSignInAction"
         android:text="Login"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

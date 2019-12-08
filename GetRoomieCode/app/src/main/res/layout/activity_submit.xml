@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CA175A"
+    android:background="#F89FAA"
     tools:context=".SubmitActivity">
 
     <Button
@@ -43,7 +43,7 @@
         android:background="#000000"
         android:text="Submitted Successfully!"
         android:textAlignment="center"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         android:textSize="50sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

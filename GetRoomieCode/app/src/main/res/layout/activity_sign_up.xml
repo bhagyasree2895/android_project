@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CA175A"
+    android:background="#F89FAA"
     tools:context=".SignUpActivity">
 
     <Button
@@ -14,7 +14,7 @@
         android:background="#000000"
         android:onClick="gotoSuccessfulSignUpActivityAction"
         android:text="Sign-Up"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.842"
@@ -70,8 +70,8 @@
         android:layout_height="40dp"
         android:background="#FFFFFF"
         android:ems="10"
-        android:maxLength="10"
         android:inputType="textPersonName"
+        android:maxLength="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.809"
@@ -112,7 +112,7 @@
         android:background="#000000"
         android:text="UserId:"
         android:textAlignment="center"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.074"
@@ -127,7 +127,7 @@
         android:background="#000000"
         android:text="Mobile:"
         android:textAlignment="center"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.074"
@@ -142,7 +142,7 @@
         android:background="#000000"
         android:text="Gender:"
         android:textAlignment="center"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.074"
@@ -157,7 +157,7 @@
         android:background="#000000"
         android:text="Confirm Password:"
         android:textAlignment="center"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -188,7 +188,7 @@
         android:background="#000000"
         android:text="Full Name:"
         android:textAlignment="center"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.074"
@@ -203,7 +203,7 @@
         android:background="#000000"
         android:text="Password:"
         android:textAlignment="center"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.074"
@@ -227,22 +227,22 @@
             android:id="@+id/Male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male"
-            android:buttonTint="#000000"/>
+            android:buttonTint="#000000"
+            android:text="Male" />
 
         <RadioButton
             android:id="@+id/Female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Female"
-            android:buttonTint="#000000"/>
+            android:buttonTint="#000000"
+            android:text="Female" />
 
         <RadioButton
             android:id="@+id/Other"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Other"
-            android:buttonTint="#000000"/>
+            android:buttonTint="#000000"
+            android:text="Other" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

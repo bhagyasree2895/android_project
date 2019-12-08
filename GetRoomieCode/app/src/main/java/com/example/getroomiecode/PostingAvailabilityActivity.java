@@ -239,7 +239,7 @@ public class PostingAvailabilityActivity extends AppCompatActivity {
             image_object_id = imgupload.getObjectId();
             Log.d("object_id", "object_id is" + image_object_id);
             Toast.makeText(PostingAvailabilityActivity.this, "object is is " + image_object_id, Toast.LENGTH_SHORT).show();
-            room.put("car_image_object_id", image_object_id);
+            room.put("image_object_id", image_object_id);
 
 //        Bitmap imageBitmap = selectedImage;
 ////        // Locate the image in res >

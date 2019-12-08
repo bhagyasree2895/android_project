@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CA175A"
+    android:background="#F89FAA"
     tools:context=".UploadImageActivity">
 
     <TextView
@@ -67,7 +67,7 @@
         android:background="#000000"
         android:onClick="gotoPostingAvailAction"
         android:text="Done"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.752"

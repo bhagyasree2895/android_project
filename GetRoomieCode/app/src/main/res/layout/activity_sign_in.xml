@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CA175A"
+    android:background="#F89FAA"
     tools:context=".SignInActivity">
 
     <Button
@@ -14,7 +14,7 @@
         android:background="#000000"
         android:onClick="gotoPostingAvailAction"
         android:text="Post Room"
-        android:textColor="#ca175a"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:background="#000000"
         android:onClick="gotosignoutAction"
         android:text="Signout"
-        android:textColor="#CA175A"
+        android:textColor="#F89FAA"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +44,7 @@
         android:background="#000000"
         android:onClick="gotoSearchRoom"
         android:text="Find Room"
-        android:textColor="#ca175a"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -59,7 +59,7 @@
         android:background="#000000"
         android:onClick="getLocationAction"
         android:text="Get Location"
-        android:textColor="#ca175a"
+        android:textColor="#F89FAA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,9 +111,9 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="253dp"
-        android:layout_height="134dp"
-        android:text="Welcome User!!!"
+        android:layout_width="258dp"
+        android:layout_height="84dp"
+        android:text="Welcome!!!"
         android:textAlignment="center"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
