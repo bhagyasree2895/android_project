@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#CA175A"
-    tools:context=".HomeActivity">
+    tools:context=".SignInActivity">
 
     <Button
         android:id="@+id/postAvailabilityBTN"
@@ -96,10 +96,12 @@
 
     <TextView
         android:id="@+id/locationTV"
-        android:layout_width="374dp"
+        android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:ems="30"
-        android:textSize="12sp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.567"
@@ -111,7 +113,7 @@
         android:id="@+id/textView2"
         android:layout_width="253dp"
         android:layout_height="134dp"
-        android:text="Welcome !!"
+        android:text="Welcome User!!!"
         android:textAlignment="center"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"

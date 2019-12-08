@@ -32,14 +32,9 @@
         android:textColor="#CA175A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
         app:layout_constraintVertical_bias="0.878" />
-=======
-        app:layout_constraintVertical_bias="0.816" />
->>>>>>> b541fb6bcc0f39168801d9eb2f75d9afde3d3f9f
 
     <EditText
         android:id="@+id/usernameET"

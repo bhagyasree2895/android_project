@@ -8,6 +8,7 @@ import com.parse.ParseObject;
 // This class extends from ParseObject, will provide the message data when using it on the recycler view
 // and will help us to retrieve and save messages to Parse
 public class Message extends ParseObject {
+
     public static final String USER_ID_KEY = "userId";
     public static final String BODY_KEY = "body";
 

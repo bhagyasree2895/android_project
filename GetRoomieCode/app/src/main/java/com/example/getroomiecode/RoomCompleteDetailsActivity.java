@@ -1,9 +1,11 @@
 package com.example.getroomiecode;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import com.parse.ParseInstallation;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RoomCompleteDetailsActivity extends AppCompatActivity {
@@ -74,7 +77,7 @@ public class RoomCompleteDetailsActivity extends AppCompatActivity {
     }
     public void gotohomePage(View v) {
         try {
-            Intent toOtherIntent = new Intent(this, HomeActivity.class);
+            Intent toOtherIntent = new Intent(this,SignInActivity.class);
             startActivity(toOtherIntent);
 
         } catch (Exception e) {
