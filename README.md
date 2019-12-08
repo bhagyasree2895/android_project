@@ -23,7 +23,7 @@ Our application can run in every Android mobile devices.
 1. Install Google play services SDK in Android studio.
 
 ### Test Credentials:
-Username: Bhagyasree@345
+Username: Bearcat@room.com
 
 Password: Bearcat123$
 
